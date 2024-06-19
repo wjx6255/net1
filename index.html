@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简易音乐播放器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .music-player {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        audio {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-player">
+        <h2>音乐播放器</h2>
+        <audio id="myAudio" controls>
+            <source src="path_to_your_music_file.mp3" type="audio/mpeg">
+            您的浏览器不支持 audio 元素。
+        </audio>
+        <div>
+            <button onclick="playPause()">播放/暂停</button>
+            <button onclick="makeSoundMute()">静音/取消静音</button>
+        </div>
+    </div>
+
+    <script>
+        var myAudio = document.getElementById('myAudio');
+
+        function playPause() {
+            if (myAudio.paused || myAudio.ended) {
+                myAudio.play();
+            } else {
+                myAudio.pause();
+            }
+        }
+
+        function makeSoundMute() {
+            if (myAudio.muted) {
+                myAudio.muted = false;
+            } else {
+                myAudio.muted = true;
+            }
+        }
+    </script>
+</body>
+</html>
